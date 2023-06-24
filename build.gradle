@@ -22,9 +22,20 @@ repositories {
 }
 
 dependencies {
+	// for rest api
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// for annotations
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	// for authorization
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	// for jwt token
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
+
+	// for test case
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
