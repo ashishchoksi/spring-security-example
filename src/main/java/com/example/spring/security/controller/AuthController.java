@@ -18,13 +18,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AuthController {
 
-    private final AuthenticationManager authenticationManager;
+    // private final AuthenticationManager authenticationManager;
     private final UserDao userDao;
     private final JwtUtil jwtUtil;
 
     @PostMapping("/authenticate")
     public ResponseEntity<String> authenticateUser(@RequestBody AuthRequest authRequest) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getEmail(), authRequest.getPassword()));
+        // authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getEmail(), authRequest.getPassword()));
         UserDetails user = userDao.findUserByEmail(authRequest.getEmail());
         if (user != null) {
             return ResponseEntity.ok(jwtUtil.generateToken(user));
